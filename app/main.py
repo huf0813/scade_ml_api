@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI, UploadFile, File
 import cv2
 import uuid
@@ -36,4 +38,7 @@ def read_root(skin_image: UploadFile = File(...)):
     max_prob = max(result[0])
     class_ind = list(result[0]).index(max_prob)
     class_name = cancer_class[class_ind]
+
+    os.remove('{}/{}'.format(base_dir, file_name_uuid))
+
     return custom_res(True, file_name_uuid, class_name)
