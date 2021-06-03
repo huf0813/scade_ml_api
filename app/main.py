@@ -9,13 +9,13 @@ from keras.preprocessing import image
 app = FastAPI()
 model_skin_classifier_cnn = tf.keras.models.load_model('skin_cancer.h5')
 cancer_class = {
-    4: {'nv', 'melanocytic nevi'},
-    6: {'mel', 'melanoma'},
-    2: {'bkl', 'benign keratosis-like lesions'},
-    1: {'bcc', 'basal cell carcinoma'},
-    5: {'vasc', 'pyogenic granulomas and hemorrhage'},
-    0: {'akiec', 'Actinic keratoses and intraepithelial carcinomae'},
-    3: {'df', 'dermatofibroma'}
+    4: 'melanocytic nevi',
+    6: 'melanoma',
+    2: 'benign keratosis-like lesions',
+    1: 'basal cell carcinoma',
+    5: 'pyogenic granulomas and hemorrhage',
+    0: 'Actinic keratoses and intraepithelial carcinomae',
+    3: 'dermatofibroma'
 }
 
 
